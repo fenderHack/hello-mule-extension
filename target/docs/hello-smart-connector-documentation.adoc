@@ -11,12 +11,12 @@ This module relies in runtime provided components
 
 == Operations
 
-[[SetPayloadHardcoded]]
-== Set Payload Hardcoded
-`<module-hello:set-payload-hardcoded>`
+[[CallHttpRequest]]
+== Call Http Request
+`<module-hello:call-http-request>`
 
 
-Sets the payload to the String value 'Wubba Lubba Dub Dub'
+For HTTP only
 
 
 === Parameters
@@ -24,6 +24,11 @@ Sets the payload to the String value 'Wubba Lubba Dub Dub'
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
+| URL a| String |  |  | *x*{nbsp}
+| METHOD a| String |  |  GET | {nbsp}
+| CLIENT ID a| String |  |  | {nbsp}
+| CLIENT SECRET a| String |  |  | {nbsp}
+| TIME OUT a| String |  |  100000 | {nbsp}
 | Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
 | Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
 | Error Mappings a| Array of <<ErrorMapping>> |  Set of error mappings |  | {nbsp}
@@ -37,34 +42,10 @@ Sets the payload to the String value 'Wubba Lubba Dub Dub'
 |===
 
 
+=== Throws
 
-
-[[SetPayloadHardcodedTwoTimes]]
-== Set Payload Hardcoded Two Times
-`<module-hello:set-payload-hardcoded-two-times>`
-
-
-Sets the payload to the String value 'Wubba Lubba Dub Dub Dub Dub' (uses references to local operation)
-
-
-=== Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
-| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
-| Error Mappings a| Array of <<ErrorMapping>> |  Set of error mappings |  | {nbsp}
-|===
-
-=== Output
-
-[%autowidth.spread]
-|===
-| *Type* a| String
-|===
-
-
+* MODULE-HELLO:ANY {nbsp}
+* MODULE-HELLO:PARSING {nbsp}
 
 
 

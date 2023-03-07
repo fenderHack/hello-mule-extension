@@ -45,10 +45,13 @@
       "supportsStreaming": false,
       "notifications": [],
       "nestedComponents": [],
-      "errors": [],
+      "errors": [
+        "MODULE-HELLO:ANY",
+        "MODULE-HELLO:PARSING"
+      ],
       "semanticTerms": [],
       "stereotype": {
-        "type": "SET-PAYLOAD-HARDCODED",
+        "type": "CALL-HTTP-REQUEST",
         "namespace": "MODULE-HELLO",
         "parent": {
           "type": "PROCESSOR",
@@ -60,6 +63,177 @@
         }
       },
       "parameterGroupModels": [
+        {
+          "parameters": [
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": true,
+              "isConfigOverride": false,
+              "isComponentId": false,
+              "fieldValueProviderModels": [],
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": false,
+                "allowsReferences": false,
+                "allowTopLevelDefinition": false
+              },
+              "layoutModel": {
+                "password": false,
+                "text": false,
+                "query": false,
+                "tabName": "General"
+              },
+              "allowedStereotypeModels": [],
+              "semanticTerms": [],
+              "name": "url",
+              "displayModel": {
+                "displayName": "URL"
+              },
+              "description": "",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "isComponentId": false,
+              "fieldValueProviderModels": [],
+              "expressionSupport": "SUPPORTED",
+              "defaultValue": "GET",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": false,
+                "allowsReferences": false,
+                "allowTopLevelDefinition": false
+              },
+              "layoutModel": {
+                "password": false,
+                "text": false,
+                "query": false,
+                "tabName": "General"
+              },
+              "allowedStereotypeModels": [],
+              "semanticTerms": [],
+              "name": "method",
+              "displayModel": {
+                "displayName": "METHOD"
+              },
+              "description": "",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "isComponentId": false,
+              "fieldValueProviderModels": [],
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": false,
+                "allowsReferences": false,
+                "allowTopLevelDefinition": false
+              },
+              "layoutModel": {
+                "password": false,
+                "text": false,
+                "query": false,
+                "tabName": "General"
+              },
+              "allowedStereotypeModels": [],
+              "semanticTerms": [],
+              "name": "clientId",
+              "displayModel": {
+                "displayName": "CLIENT ID"
+              },
+              "description": "",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "isComponentId": false,
+              "fieldValueProviderModels": [],
+              "expressionSupport": "SUPPORTED",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": false,
+                "allowsReferences": false,
+                "allowTopLevelDefinition": false
+              },
+              "layoutModel": {
+                "password": false,
+                "text": false,
+                "query": false,
+                "tabName": "General"
+              },
+              "allowedStereotypeModels": [],
+              "semanticTerms": [],
+              "name": "clientSecret",
+              "displayModel": {
+                "displayName": "CLIENT SECRET"
+              },
+              "description": "",
+              "modelProperties": {}
+            },
+            {
+              "type": {
+                "format": "java",
+                "type": "String"
+              },
+              "hasDynamicType": false,
+              "required": false,
+              "isConfigOverride": false,
+              "isComponentId": false,
+              "fieldValueProviderModels": [],
+              "expressionSupport": "SUPPORTED",
+              "defaultValue": "100000",
+              "role": "BEHAVIOUR",
+              "dslConfiguration": {
+                "allowsInlineDefinition": false,
+                "allowsReferences": false,
+                "allowTopLevelDefinition": false
+              },
+              "layoutModel": {
+                "password": false,
+                "text": false,
+                "query": false,
+                "tabName": "Response"
+              },
+              "allowedStereotypeModels": [],
+              "semanticTerms": [],
+              "name": "responseTimeout",
+              "displayModel": {
+                "displayName": "TIME OUT"
+              },
+              "description": "",
+              "modelProperties": {}
+            }
+          ],
+          "exclusiveParametersModels": [],
+          "showInDsl": false,
+          "name": "General",
+          "description": "",
+          "modelProperties": {}
+        },
         {
           "parameters": [
             {
@@ -259,255 +433,9 @@
           "modelProperties": {}
         }
       ],
-      "name": "set-payload-hardcoded",
+      "name": "call-http-request",
       "displayModel": {},
-      "description": "Sets the payload to the String value \u0027Wubba Lubba Dub Dub\u0027",
-      "modelProperties": {},
-      "kind": "operation"
-    },
-    {
-      "blocking": true,
-      "executionType": "CPU_LITE",
-      "output": {
-        "type": {
-          "format": "java",
-          "type": "String"
-        },
-        "hasDynamicType": false,
-        "description": "Payload\u0027s output",
-        "modelProperties": {}
-      },
-      "outputAttributes": {
-        "type": {
-          "format": "java",
-          "type": "Void"
-        },
-        "hasDynamicType": false,
-        "description": "",
-        "modelProperties": {}
-      },
-      "transactional": false,
-      "requiresConnection": false,
-      "supportsStreaming": false,
-      "notifications": [],
-      "nestedComponents": [],
-      "errors": [],
-      "semanticTerms": [],
-      "stereotype": {
-        "type": "SET-PAYLOAD-HARDCODED-TWO-TIMES",
-        "namespace": "MODULE-HELLO",
-        "parent": {
-          "type": "PROCESSOR",
-          "namespace": "MODULE-HELLO",
-          "parent": {
-            "type": "PROCESSOR",
-            "namespace": "MULE"
-          }
-        }
-      },
-      "parameterGroupModels": [
-        {
-          "parameters": [
-            {
-              "type": {
-                "format": "java",
-                "type": "String"
-              },
-              "hasDynamicType": false,
-              "required": false,
-              "isConfigOverride": false,
-              "isComponentId": false,
-              "fieldValueProviderModels": [],
-              "expressionSupport": "NOT_SUPPORTED",
-              "role": "BEHAVIOUR",
-              "dslConfiguration": {
-                "allowsInlineDefinition": false,
-                "allowsReferences": false,
-                "allowTopLevelDefinition": false
-              },
-              "layoutModel": {
-                "password": false,
-                "text": false,
-                "query": false,
-                "tabName": "Advanced"
-              },
-              "allowedStereotypeModels": [],
-              "semanticTerms": [],
-              "name": "target",
-              "displayModel": {
-                "displayName": "Target Variable"
-              },
-              "description": "The name of a variable on which the operation\u0027s output will be placed",
-              "modelProperties": {}
-            },
-            {
-              "type": {
-                "format": "java",
-                "type": "String"
-              },
-              "hasDynamicType": false,
-              "required": false,
-              "isConfigOverride": false,
-              "isComponentId": false,
-              "fieldValueProviderModels": [],
-              "expressionSupport": "REQUIRED",
-              "defaultValue": "#[payload]",
-              "role": "BEHAVIOUR",
-              "dslConfiguration": {
-                "allowsInlineDefinition": false,
-                "allowsReferences": false,
-                "allowTopLevelDefinition": false
-              },
-              "layoutModel": {
-                "password": false,
-                "text": false,
-                "query": false,
-                "tabName": "Advanced"
-              },
-              "allowedStereotypeModels": [],
-              "semanticTerms": [],
-              "name": "targetValue",
-              "displayModel": {
-                "displayName": "Target Value"
-              },
-              "description": "An expression that will be evaluated against the operation\u0027s output and the outcome of that expression will be stored in the target variable",
-              "modelProperties": {}
-            }
-          ],
-          "exclusiveParametersModels": [],
-          "showInDsl": false,
-          "name": "Output",
-          "description": "",
-          "modelProperties": {}
-        },
-        {
-          "parameters": [
-            {
-              "type": {
-                "format": "java",
-                "type": "Array",
-                "annotations": {
-                  "infrastructureType": {},
-                  "description": {
-                    "value": "Determines that an error thrown by this operation should be mapped to another"
-                  },
-                  "typeDsl": {
-                    "allowInlineDefinition": true,
-                    "allowTopLevelDefinition": false
-                  }
-                },
-                "item": {
-                  "type": "Object",
-                  "annotations": {
-                    "typeId": "errorMapping",
-                    "infrastructureType": {}
-                  },
-                  "fields": [
-                    {
-                      "key": {
-                        "name": "source"
-                      },
-                      "model": {
-                        "format": {
-                          "id": "text",
-                          "label": "Text",
-                          "validMimeTypes": [
-                            "text/plain"
-                          ]
-                        },
-                        "type": "String",
-                        "annotations": {
-                          "typeId": "errorTypeMatcher",
-                          "enum": {
-                            "type": "[Ljava.lang.String;",
-                            "values": [
-                              "ANY",
-                              "REDELIVERY_EXHAUSTED",
-                              "TRANSFORMATION",
-                              "EXPRESSION",
-                              "SECURITY",
-                              "CLIENT_SECURITY",
-                              "SERVER_SECURITY",
-                              "ROUTING",
-                              "CONNECTIVITY",
-                              "RETRY_EXHAUSTED",
-                              "TIMEOUT"
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "key": {
-                        "name": "target",
-                        "required": "true"
-                      },
-                      "model": {
-                        "format": {
-                          "id": "text",
-                          "label": "Text",
-                          "validMimeTypes": [
-                            "text/plain"
-                          ]
-                        },
-                        "type": "String",
-                        "annotations": {
-                          "typeId": "errorTypeDefinition"
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "hasDynamicType": false,
-              "required": false,
-              "isConfigOverride": false,
-              "isComponentId": false,
-              "fieldValueProviderModels": [],
-              "expressionSupport": "NOT_SUPPORTED",
-              "role": "BEHAVIOUR",
-              "dslConfiguration": {
-                "allowsInlineDefinition": true,
-                "allowsReferences": false,
-                "allowTopLevelDefinition": false
-              },
-              "layoutModel": {
-                "password": false,
-                "text": false,
-                "query": false,
-                "tabName": "Error Mapping"
-              },
-              "allowedStereotypeModels": [],
-              "semanticTerms": [],
-              "name": "errorMappings",
-              "description": "Set of error mappings",
-              "modelProperties": {
-                "org.mule.runtime.extension.api.property.QNameModelProperty": {
-                  "value": {
-                    "namespaceURI": "http://www.mulesoft.org/schema/mule/core",
-                    "localPart": "error-mappings",
-                    "prefix": "mule"
-                  }
-                },
-                "sinceMuleVersion": {
-                  "version": "4.4.0"
-                },
-                "org.mule.runtime.extension.api.property.InfrastructureParameterModelProperty": {
-                  "sequence": 12
-                }
-              }
-            }
-          ],
-          "exclusiveParametersModels": [],
-          "showInDsl": false,
-          "name": "Error Mappings",
-          "description": "",
-          "modelProperties": {}
-        }
-      ],
-      "name": "set-payload-hardcoded-two-times",
-      "displayModel": {},
-      "description": "Sets the payload to the String value \u0027Wubba Lubba Dub Dub Dub Dub\u0027 (uses references to local operation)",
+      "description": "For HTTP only",
       "modelProperties": {},
       "kind": "operation"
     }
@@ -517,11 +445,28 @@
   "connectionProviders": [],
   "messageSources": [],
   "notifications": [],
-  "errors": [],
+  "errors": [
+    {
+      "error": "MODULE-HELLO:PARSING",
+      "parent": "MULE:ANY",
+      "handleable": true
+    },
+    {
+      "error": "MULE:ANY",
+      "handleable": true
+    },
+    {
+      "error": "MODULE-HELLO:ANY",
+      "parent": "MULE:ANY",
+      "handleable": true
+    }
+  ],
   "modelProperties": {
     "org.mule.runtime.extension.api.property.XmlExtensionModelProperty": {
       "namespacesDependencies": [
+        "http://www.mulesoft.org/schema/mule/http",
         "http://www.mulesoft.org/schema/mule/module",
+        "http://www.mulesoft.org/schema/mule/sockets",
         "http://www.mulesoft.org/schema/mule/core"
       ]
     }

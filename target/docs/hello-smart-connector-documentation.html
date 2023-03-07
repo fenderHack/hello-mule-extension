@@ -1996,13 +1996,13 @@ p.tableblock {
 </div>
 </div>
 <div class="sect1">
-<h2 id="SetPayloadHardcoded">Set Payload Hardcoded</h2>
+<h2 id="CallHttpRequest">Call Http Request</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>&lt;module-hello:set-payload-hardcoded&gt;</code></p>
+<p><code>&lt;module-hello:call-http-request&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Sets the payload to the String value 'Wubba Lubba Dub Dub'</p>
+<p>For HTTP only</p>
 </div>
 <div class="sect2">
 <h3 id="_parameters">Parameters</h3>
@@ -2024,6 +2024,51 @@ p.tableblock {
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>x</strong>&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">METHOD</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CLIENT ID</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CLIENT SECRET</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TIME OUT</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#160;</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Target Variable</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2071,83 +2116,18 @@ p.tableblock {
 </tbody>
 </table>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="SetPayloadHardcodedTwoTimes">Set Payload Hardcoded Two Times</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><code>&lt;module-hello:set-payload-hardcoded-two-times&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Sets the payload to the String value 'Wubba Lubba Dub Dub Dub Dub' (uses references to local operation)</p>
-</div>
 <div class="sect2">
-<h3 id="_parameters_2">Parameters</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col>
-<col>
-<col>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
-<th class="tableblock halign-left valign-top">Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Target Variable</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of a variable on which the operation&#8217;s output will be placed</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Target Value</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An expression that will be evaluated against the operation&#8217;s output and the outcome of that expression will be stored in the target variable</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">#[payload]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#160;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Mappings</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Array of <a href="#ErrorMapping">Error Mapping</a></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Set of error mappings</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#160;</p></td>
-</tr>
-</tbody>
-</table>
+<h3 id="_throws">Throws</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>MODULE-HELLO:ANY &#160;</p>
+</li>
+<li>
+<p>MODULE-HELLO:PARSING &#160;</p>
+</li>
+</ul>
 </div>
-<div class="sect2">
-<h3 id="_output_2">Output</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>String</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -2237,7 +2217,7 @@ p.tableblock {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-07 11:34:46 +01:00
+Last updated 2023-03-07 14:34:11 +01:00
 </div>
 </div>
 </body>

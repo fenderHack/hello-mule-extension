@@ -5,7 +5,7 @@
     <groupId>e60ab7b8-d535-4835-aee4-cc35fc38f83d</groupId>
     <artifactId>hello-mule-extension</artifactId>
     <packaging>mule-extension</packaging>
-    <version>1.0.0</version>
+    <version>1.0.10</version>
 
     <name>hello extension connector</name>
     <description>hello extension connector</description>
@@ -40,6 +40,12 @@
             <classifier>mule-plugin</classifier>
             <scope>test</scope>
         </dependency>
+        <dependency>
+			<groupId>org.mule.connectors</groupId>
+			<artifactId>mule-http-connector</artifactId>
+			<classifier>mule-plugin</classifier>
+			<version>1.7.1</version>
+		</dependency>
     </dependencies>
 
     <build>

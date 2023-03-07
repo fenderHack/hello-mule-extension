@@ -1,31 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module name="Hello Smart Connector"
-        prefix="module-hello"
-        doc:description="This module relies in runtime provided components"
+<module name="Hello Smart Connector" prefix="module-hello"
+	doc:description="This module relies in runtime provided components"
+	
+	xmlns="http://www.mulesoft.org/schema/mule/module"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:mule="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:tns="http://www.mulesoft.org/schema/mule/module-hello"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+           http://www.mulesoft.org/schema/mule/module 
+           http://www.mulesoft.org/schema/mule/module/current/mule-module.xsd
+           http://www.mulesoft.org/schema/mule/core 
+           http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+           http://www.mulesoft.org/schema/mule/http 
+           http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+           http://www.mulesoft.org/schema/mule/module-hello 
+           http://www.mulesoft.org/schema/mule/module-hello/current/mule-module-hello.xsd">
 
-        xmlns="http://www.mulesoft.org/schema/mule/module"
-        xmlns:mule="http://www.mulesoft.org/schema/mule/core"
-        xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-        xmlns:tns="http://www.mulesoft.org/schema/mule/module-hello"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="
-           http://www.mulesoft.org/schema/mule/module http://www.mulesoft.org/schema/mule/module/current/mule-module.xsd
-           http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-           http://www.mulesoft.org/schema/mule/module-hello http://www.mulesoft.org/schema/mule/module-hello/current/mule-module-hello.xsd">
+	<operation name="call-http-request"
+		doc:description="For HTTP only">
+		<parameters>
+			<parameter name="url" displayName="URL" type="string"
+				use="REQUIRED" />
+			<parameter name="method" displayName="METHOD" type="string"
+				use="OPTIONAL" defaultValue="GET" />
+			<parameter name="clientId" displayName="CLIENT ID"
+				type="string" use="OPTIONAL" />
+			<parameter name="clientSecret" displayName="CLIENT SECRET"
+				type="string" use="OPTIONAL" />
+			<parameter name="responseTimeout" displayName="TIME OUT"
+				type="string" use="OPTIONAL" defaultValue="100000" tab="Response" />
+			<!-- <parameter name="content" type="PersonJsonType" use="OPTIONAL"/> -->
+		</parameters>
+		<body>
+			<mule:logger level="INFO"
+				message="#[output application/json --- {
+						client_id: vars.clientId,
+						client_secret: vars.clientSecret,
+						url: vars.url,
+						responseTimeout: vars.responseTimeout
+					}]"
+				category="" />
+			<http:request method="#[vars.method]"
+				url="#[vars.url]"
+				outputMimeType="application/json"
+				responseTimeout="#[vars.responseTimeout]">
+				<mule:error-mapping targetType="MODULE-HELLO:PARSING" sourceType="HTTP:PARSING"/>
+				<mule:error-mapping targetType="MODULE-HELLO:ANY" sourceType="ANY"/>
+				<http:headers><![CDATA[#[output application/java
+						---
+						{
+						client_id: vars.clientId,
+						client_secret: vars.clientSecret
+					}]]]>
+				</http:headers>
+				<http:response-validator>
+					<http:success-status-code-validator values="200..399" />
+				</http:response-validator>
+			</http:request>
 
-    <operation name="set-payload-hardcoded" doc:description="Sets the payload to the String value 'Wubba Lubba Dub Dub'">
-        <body>
-            <mule:set-payload value="Wubba Lubba Dub Dub"/>
-        </body>
-        <output type="string" doc:description="Payload's output"/>
-    </operation>
+			<mule:logger level="INFO"
+				message="#[output application/json --- {
+						payload: payload
+					}]"
+				category="" />
 
-    <operation name="set-payload-hardcoded-two-times" doc:description="Sets the payload to the String value 'Wubba Lubba Dub Dub Dub Dub' (uses references to local operation)">
-        <body>
-            <tns:set-payload-hardcoded/>
-            <mule:set-payload value="#[payload ++ ' Dub Dub']"/>
-        </body>
-        <output type="string" doc:description="Payload's output"/>
-    </operation>
+		</body>
+		<output type="string" doc:description="Payload's output" />
+		<errors>
+			<error type="PARSING" />
+			<error type="ANY" />
+		</errors>
+	</operation>
 
- </module>
+</module>

@@ -5,7 +5,7 @@
     <groupId>e60ab7b8-d535-4835-aee4-cc35fc38f83d</groupId>
     <artifactId>hello-mule-extension</artifactId>
     <packaging>mule-extension</packaging>
-    <version>1.0.10</version>
+    <version>1.0.11</version>
 
     <name>hello extension connector</name>
     <description>hello extension connector</description>
